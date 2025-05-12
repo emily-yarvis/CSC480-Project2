@@ -224,7 +224,7 @@ def UCB1(parent):
     for node in parent.children:
          if node.total/node.visited + math.sqrt(2 * math.log(node.total)/node.visited) > max:
               max = node.total/node.visited + math.sqrt(2 * math.log(node.total)/node.visited)
-              maxNode = max
+              maxNode = node
     return maxNode
     
         
