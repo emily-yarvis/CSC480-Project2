@@ -22,32 +22,30 @@ def whoWins(currentGame:Game):
     opponentCards = currentGame.opponentsHand + currentGame.river
    
 def getBestHand(currentGame):
-    hands = []
-    ranks = []
     hand = currentGame.myHand
     river = currentGame.river
+
     combos = [
-    hand + [river[0], river[1], river[2]],
-    hand + [river[0], river[1], river[3]],
-    hand + [river[0], river[1], river[4]],
-    hand + [river[0], river[2], river[3]],
-    hand + [river[0], river[2], river[4]],
-    hand + [river[0], river[3], river[4]],
-    hand + [river[1], river[2], river[3]],
-    hand + [river[1], river[2], river[4]],
-    hand + [river[1], river[3], river[4]],
-    hand + [river[2], river[3], river[4]],
-]
+        hand + [river[0], river[1], river[2]],
+        hand + [river[0], river[1], river[3]],
+        hand + [river[0], river[1], river[4]],
+        hand + [river[0], river[2], river[3]],
+        hand + [river[0], river[2], river[4]],
+        hand + [river[0], river[3], river[4]],
+        hand + [river[1], river[2], river[3]],
+        hand + [river[1], river[2], river[4]],
+        hand + [river[1], river[3], river[4]],
+        hand + [river[2], river[3], river[4]],
+    ]
 
+    bestRank = -1
+    for combo in combos:
+        rank = rankHand(combo)
+        if rank > bestRank:
+            bestRank = rank
 
-    for i in range(0,len(combos)):
-        max =0
-        index = 0
-        if  rankHand(combos[i])> max :
-             max = rankHand(combos[i])
-             index = i
-        
-    return max
+    return bestRank
+
 
     
 
